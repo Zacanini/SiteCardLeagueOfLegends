@@ -1,0 +1,242 @@
+
+@import url(Fonts_Package/BeaufortForLoL-OTF);
+
+*{
+    font-family: "BeaufortforLOL"  ;
+}
+
+body{
+    background-color: #000000;;
+}
+li{
+    color: bisque;
+    display: flex;
+    align-items: center;
+}
+ul{
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+h1{
+    color: bisque;
+}
+p{
+    color: bisque;
+}
+
+
+.flex{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.nav{
+    border: 1px solid #ffffff6e;
+    border-radius: 10px;
+    height: 100px;
+    margin: 20px 30px 0px 30px;
+}
+
+.logo{
+    color: bisque;
+    font-weight: 500;
+    font-size: 30px;
+    padding-left:40px ;
+}
+
+.siteLol{
+    padding-bottom: 3rem;
+}
+#BotaoSite{
+    color: bisque;
+    text-decoration: none;
+    padding-right:40px ;
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: 25% 50% 25%;
+    width: 100%;
+    justify-items: center;
+    row-gap: 20px;
+    grid-template-areas: 
+    ". card ."
+    ". botaoRodar ."
+    "icone1 icone2 icone3"
+    "loreContainer loreContainer loreContainer"
+    
+    ;
+}
+div.card{
+    grid-area: card;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+h1.nome{
+    text-align: center;
+    color: bisque;
+    position: absolute;
+    top: 50%;  /* Place it vertically in the middle */
+    left: 50%;  /* Place it horizontally in the middle */
+    transform: translate(-50%, -50%);  /* Center it within the image */
+    font-size: 11px;
+    background-color: rgba(0, 0, 0, 0.51);
+    padding: 7px 9px;
+    border-radius: 3px;
+}
+
+.imagem{
+    box-shadow: -0 -3px 15px rgba(255, 217, 0, 0.312);
+}
+.containerHabilidades{
+    position: absolute;
+    top: 87%;  /* Place it vertically in the middle */
+    left: 50%;  /* Place it horizontally in the middle */
+    transform: translate(-50%, -50%);  /* Center it within the image */
+    display: grid;
+    grid-template-columns: 100px 100px;
+    width: 250px;
+    gap: 10px 10px;
+    justify-content: center;
+    align-items: center;
+    padding-left: 22px;
+    
+}
+.skill{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 5px;
+
+}
+
+.imgSkill{
+    border-radius: 10px;
+}
+
+.nomeHabilidae{
+    color: bisque;
+    font-size: 10px;
+}
+
+.containerBotaoGirar{
+    grid-area: botaoRodar;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.botaoGirar{
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    background-color: bisque;
+}
+
+.botaoGirar:hover{
+    transform: scale(1.2);
+    cursor: pointer;
+    box-shadow: 0 -3px 5px rgba(255, 217, 0, 0.312);
+}
+
+.iconeContainer{
+    display: flex;
+    justify-content:center ;
+    
+}
+
+
+
+.icone1{
+    grid-area: icone1;
+}
+.icone2{
+    grid-area: icone2;
+}
+.icone3{
+    grid-area: icone3;
+}
+.icone4{
+    grid-area: icone4;
+}
+
+.loreContainer{
+    grid-area: loreContainer;
+}
+
+.lorePrincipal{
+   padding: 0 110px;
+   text-align:justify;
+}
+.lorePrincipal h1{
+    text-align: start;
+}
+.dicas{
+    padding: 0 110px;
+   text-align:justify;
+}
+.dicas h1{
+    text-align: start;
+}
+
+
+.footerContainer{
+    justify-content: space-between;
+    margin: 30px 20px;
+    border-top: 2px solid wheat;
+}
+
+.referencia{
+    text-decoration: none;
+    color: bisque;
+}
+
+.loader {
+    border: 5px solid rgba(255, 217, 0, 0.66); /* Cinza claro */
+    border-top: 5px solid black; /* Azul */
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 2s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  @media (max-width:900px) {
+    ul{
+        margin: 0;
+        padding: 0;
+    }
+    div.logo{
+        font-size: 15px;
+    }
+    div.sitelol{
+        padding: 0;
+    }
+    a#botaoSite{
+        font-size: 15px;
+    }
+    .imagem{
+        width: 283px;
+    }
+    div.loreprincipal{
+        padding: 0 20px;
+    }
+    div.dicas{
+        padding: 0 20px;
+    }
+  }
+
+  
