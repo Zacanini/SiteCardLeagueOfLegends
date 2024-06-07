@@ -1,28 +1,60 @@
-async function buscarCampeoes() {
-  try {
-    const response = await fetch('./dragonTail/14.11.1/data/pt_BR/championFull.json');
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.error('Erro ao buscar dados dos campeões:', error);
-    // Exibir mensagem de erro para o usuário (opcional)
-  }
+async function getChampionData() {
+  const response = await fetch('lol.json');
+  const data = await response.json();
+  return data;
+}
+async function getAllChampionsData() {
+  const allData = await getChampionData();
+  return allData;
+}
+async function getChampionNames() {
+  const allData = await getAllChampionsData();
+  const championNames = Object.keys(allData.data);
+  return championNames;
+}
+function getRandomIndex(maxIndex) {
+  return Math.floor(Math.random() * maxIndex);
+}
+async function getRandomChampion() {
+  const championNames = await getChampionNames();
+  const randomIndex = getRandomIndex(championNames.length - 1);
+  const randomChampionName = championNames[randomIndex];
+  return randomChampionName;
 }
 
-function obterDadosHabilidades(spells, tipoDado) {
-  const dadosHabilidades = [];
+async function formatarDadosChampions(dados) {
+  const randomChampionName = await getRandomChampion(); // Aguarda a resolução da promessa
+  const championData = dados.data[randomChampionName];
 
-  for (const habilidade of spells) {
-    dadosHabilidades.push(tipoDado === 'id' ? habilidade.id : habilidade.name);
-  }
-  return dadosHabilidades;
+  return {
+    name: championData.name,
+    title: championData.title,
+    stats: {
+      attack: championData.info.attack,
+      defense: championData.info.defense,
+      magic: championData.info.magic,
+      difficulty: championData.info.difficulty,
+      // ... adicione outras estatísticas conforme necessário
+    },
+    // ... adicione outras propriedades conforme necessário
+  };
 }
 
 
+export { getChampionData, formatarDadosChampions };
 
-function formatarDadosChampionsAleatorio(dados) {
-  const championAleatorio = Object.keys(dados.data)[Math.floor(Math.random() * Object.keys(dados.data).length)];
-  const skinAleatoria = Object.keys(championAleatorio.skins)[Math.floor(Math.random() * Object.keys(championAleatorio.skins).length)];
+
+
+
+
+
+
+
+
+/*function formatarDadosChampionsAleatorio(dados) {
+  const championAleatorio = obterCampeaoAleatorio()
+
+
 
   const nomesHabilidades = obterDadosHabilidades(championAleatorio.spells, 'name');
   const imagensHabilidades = obterDadosHabilidades(championAleatorio.spells, 'id');
@@ -30,7 +62,6 @@ function formatarDadosChampionsAleatorio(dados) {
   return {
     imagem: skinAleatoria.num,
     nome: championAleatorio.id,
-    nameSkin: skinAleatoria.name,
     habilidades: [
       {
         nome: nomesHabilidades[0],
@@ -63,10 +94,10 @@ function formatarDadosChampionsAleatorio(dados) {
       resistenciaMagica: championAleatorio.stats.spellblock,
     },
     lore: {
-      historia: championAleatorio.lore.biography.content,
+      historia: championAleatorio.lore,
       dicas: championAleatorio.allytips,
     },
   };
 }
 
-export { buscarCampeoes, formatarDadosChampionsAleatorio };
+export { buscarCampeoes, formatarDadosChampionsAleatorio }; */
