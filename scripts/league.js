@@ -26,18 +26,7 @@ async function formatarDadosChampions(dados) {
   const randomChampionName = await getRandomChampion(); // Aguarda a resolução da promessa
   const championData = dados.data[randomChampionName];
 
-  return {
-    name: championData.name,
-    title: championData.title,
-    stats: {
-      attack: championData.info.attack,
-      defense: championData.info.defense,
-      magic: championData.info.magic,
-      difficulty: championData.info.difficulty,
-      // ... adicione outras estatísticas conforme necessário
-    },
-    // ... adicione outras propriedades conforme necessário
-  };
+  return championData;
 }
 
 
