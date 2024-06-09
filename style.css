@@ -105,6 +105,9 @@ h1.nome{
     justify-content: center;
     align-items: center;
     padding-left: 22px;
+    background-color: #0000006a;
+    border-radius: 10px;
+    padding: 15px 0;
     
 }
 .skill{
@@ -112,6 +115,7 @@ h1.nome{
     justify-content: left;
     align-items: center;
     gap: 5px;
+    
 
 }
 
